@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+        <div>
+            <span> {{ id }} </span>
+            <div>
+                {{ id|trans|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
