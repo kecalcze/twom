@@ -2372,6 +2372,11 @@ find-up@^4.0.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
+flag-icon-css@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/flag-icon-css/-/flag-icon-css-3.5.0.tgz#430747d5cb91e60babf85494de99173c16dc7cf2"
+  integrity sha512-pgJnJLrtb0tcDgU1fzGaQXmR8h++nXvILJ+r5SmOXaaL/2pocunQo2a8TAXhjQnBpRLPtZ1KCz/TYpqeNuE2ew==
+
 follow-redirects@^1.0.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
@@ -3749,6 +3754,11 @@ pretty-error@^3.0.3:
   dependencies:
     lodash "^4.17.20"
     renderkid "^2.0.6"
+
+pristinejs@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/pristinejs/-/pristinejs-0.1.9.tgz#ded9c07c63dbc9f906931cbb603987d014481b34"
+  integrity sha512-RasEJ5wqe16mNQ6nUtf358Kr9NoqLHjiXdbYmdv5zf1TR4Rc4HHrP81gWAeVFXETzl0CAgHgAGNzSCzTWT4wFA==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"

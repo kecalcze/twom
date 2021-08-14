@@ -9,7 +9,18 @@
 import './styles/app.scss';
 
 // start the Stimulus application
-import './bootstrap';
+// import './bootstrap';
 
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
+
+require('flag-icon-css/css/flag-icon.min.css');
+
+require('./img/static/This-War-of-Mine_logo3-600x323.png');
+
+import Pristine from "pristinejs/dist/pristine";
+
+window.onload = function () {
+ 
+}
+

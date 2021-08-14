@@ -1,11 +1,19 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="d-flex align-items-center justify-content-center w-100 h-100">
-        {{ form_start(form) }}
-            {{ form_widget(form) }}
+   <div class="d-flex align-items-center justify-content-center w-100 h-100">
+       <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
+        <div>
+            <div>
+                <img src="{{ asset('build/images/This-War-of-Mine_logo3-600x323.png') }}" />
+            </div>
+            <div>
+                {{ form_start(form, {'attr': {'id': 'itemForm'}}) }}
+                {{ form_widget(form) }}
 
-            <input type="submit"/>
-        {{ form_end(form) }}
+                <input type="submit" />
+                {{ form_end(form) }}
+            </div>
+        </div>
     </div>
 {% endblock %}

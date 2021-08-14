@@ -1,11 +1,15 @@
 {% extends "base.html.twig" %}
 
+{% block title %}
+    Item {{ id }}
+{% endblock %}
+
 {% block body %}
-    <div class="d-flex align-items-center justify-content-center w-100 h-100">
-        <div>
-            <span> {{ id }} </span>
+    <div class="container d-flex align-items-center justify-content-center w-100 h-100">
+        <div class="wrapper w-75 h-75 m-auto">
+            <h1>{{ id }}</h1>
             <div>
-                {{ id|trans|raw }}
+                {{ id|trans({},'rules')|formatLinks|raw }}
             </div>
         </div>
     </div>

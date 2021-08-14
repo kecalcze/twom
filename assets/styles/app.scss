@@ -2,5 +2,19 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: lightgray;
+    background-image: url("../img/static/image-from-rawpixel-id-576393-jpeg.jpg");
+    color: #f1f2f3;
+    height: 100vh;
+    font-size: 1.5rem;
 }
+
+h1 {
+    text-align: center;
+    color: darkorange;
+    font-weight: bolder;
+}
+
+a, a:visited {
+    color: darkorange;
+}
+
