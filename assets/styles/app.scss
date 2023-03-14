@@ -18,3 +18,20 @@ a, a:visited {
     color: darkorange;
 }
 
+input[type="submit"] {
+    background: darkorange;
+    border: 1px solid #223445;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 5px 20px;
+}
+
+form {
+    margin: auto;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}

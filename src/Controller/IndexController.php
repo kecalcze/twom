@@ -14,7 +14,7 @@ class IndexController extends AbstractController
 {
     /**
      * @Route("/")
-     * @Route("/{_locale}/", requirements={"_locale"="%app.supported_locales%"})
+     * @Route("/{_locale}", requirements={"_locale"="%app.supported_locales%"})
      */
     public function index(Request $request) : Response
     {
@@ -36,16 +36,24 @@ class IndexController extends AbstractController
         }
 
         return $this->render('index.html.twig',
-            ['form' => $form->createView()]
+            [
+                'form' => $form->createView(),
+                'current_locale' => $request->getSession()->get('_locale', 'cs')
+            ]
         );
     }
 
     /**
      * @Route("/item/{id}", requirements={"id"="\d+"})
+     * @Route("/item/{id}/{_locale}", requirements={"id"="\d+", "_locale"="%app.supported_locales%"})
      */
-    public function item(string $id) : Response
+    public function item(Request $request, string $id) : Response
     {
         return $this->render('item.html.twig',
-        ['id' => $id]);
+            [
+                'id' => $id,
+                'current_locale' => $request->getSession()->get('_locale', 'cs')
+            ]
+        );
     }
 }

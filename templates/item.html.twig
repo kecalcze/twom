@@ -4,13 +4,33 @@
     Item {{ id }}
 {% endblock %}
 
+{% block locale %}
+    {% if current_locale == 'cs' %}
+        <a href="/item/{{ id }}/en">
+            <span class="flag-icon flag-icon-gb flag-icon-squared"></span>
+        </a>
+    {% else %}
+        <a href="/item/{{ id }}/cs">
+            <span class="flag-icon flag-icon-cz flag-icon-squared"></span>
+        </a>
+    {% endif %}
+{% endblock %}
+
 {% block body %}
-    <div class="container d-flex align-items-center justify-content-center w-100 h-100">
+    <div class="container d-flex align-items-center justify-content-center">
         <div class="wrapper w-75 h-75 m-auto">
             <h1>{{ id }}</h1>
             <div>
                 {{ id|trans({},'rules')|formatLinks|raw }}
             </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="container d-flex align-items-center justify-content-center mt-5">
+        <div class="wrapper w-75 h-75 m-auto">
+            <a href="/">{{ 'home_link' | trans }}</a>
         </div>
     </div>
 {% endblock %}

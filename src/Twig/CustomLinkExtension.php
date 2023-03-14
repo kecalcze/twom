@@ -3,11 +3,17 @@
 
 namespace App\Twig;
 
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
 class CustomLinkExtension extends AbstractExtension
 {
+    private TranslatorInterface $translator;
+    public function __construct(TranslatorInterface $translator) {
+        $this->translator = $translator;
+    }
+
     public function getFilters()
     {
         return [
@@ -17,12 +23,13 @@ class CustomLinkExtension extends AbstractExtension
 
     public function formatLinks($text)
     {
-        return preg_replace_callback("/\[to=(.{1,4})\]/", "self::parseLink", $text);
+        return preg_replace_callback("/\[to=(.{1,4})\]/", ['App\Twig\CustomLinkExtension', 'parseLink'], $text);
     }
 
-    private static function parseLink($matches) {
+    private function parseLink($matches): string
+    {
         if(mb_strtoupper($matches[1]) === 'BTG') {
-            return "<a href='/'>BTG</a>";
+            return "<a href='/'>" . $this->translator->trans('btg') . "</a>";
         }
         if (is_numeric($matches[1])) {
             return "<a href='/item/".$matches[1]."'>$matches[1]</a>";

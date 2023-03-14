@@ -1,8 +1,19 @@
 {% extends "base.html.twig" %}
 
+{% block locale %}
+    {% if current_locale == 'cs' %}
+        <a href="/en">
+            <span class="flag-icon flag-icon-gb flag-icon-squared"></span>
+        </a>
+    {% else %}
+        <a href="/cs">
+            <span class="flag-icon flag-icon-cz flag-icon-squared"></span>
+        </a>
+    {% endif %}
+{% endblock %}
+
 {% block body %}
    <div class="d-flex align-items-center justify-content-center w-100 h-100">
-       <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
         <div>
             <div>
                 <img src="{{ asset('build/images/This-War-of-Mine_logo3-600x323.png') }}" />
@@ -11,7 +22,7 @@
                 {{ form_start(form, {'attr': {'id': 'itemForm'}}) }}
                 {{ form_widget(form) }}
 
-                <input type="submit" />
+                <input type="submit" value="{{ 'submit' | trans  }}"/>
                 {{ form_end(form) }}
             </div>
         </div>

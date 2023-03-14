@@ -1,3 +1,6 @@
 {
-  "Id": "test"
+  "Id": "Enter number of journal entry:",
+  "submit": "Read it",
+  "btg": "BTG [Back to game]",
+  "home_link": "Homepage"
 }

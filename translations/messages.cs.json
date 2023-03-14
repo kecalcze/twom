@@ -1,3 +1,6 @@
 {
-  "Id": "test"
+  "Id": "Vložte číslo zápisu v deníku:",
+  "submit": "Přečíst",
+  "btg": "BTG [Vraťte se ke hře]",
+  "home_link": "Domů"
 }

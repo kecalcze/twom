@@ -19,7 +19,13 @@
         {% endblock %}
     </head>
     <body>
+        {% block locale %}
+        {% endblock %}
+
         <a class="github-fork-ribbon" href="https://github.com/kecalcze/twom" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
         {% block body %}{% endblock %}
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
     </body>
 </html>
