@@ -12,10 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
-    /**
-     * @Route("/")
-     * @Route("/{_locale}", requirements={"_locale"="%app.supported_locales%"})
-     */
+
+    #[Route("/")]
+    #[Route("/{_locale}", requirements: ["_locale" => "%app.supported_locales%"])]
     public function index(Request $request) : Response
     {
         $form = $this->createFormBuilder()
@@ -27,12 +26,10 @@ class IndexController extends AbstractController
                 ]])
             ->getForm();
 
-        if ($request->isMethod('POST')) {
-            $form->submit($request->request->get($form->getName()));
+        $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                return $this->redirectToRoute('app_index_item', ['id' => $form->getData()['id']]);
-            }
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('app_index_item', ['id' => $form->getData()['id']]);
         }
 
         return $this->render('index.html.twig',
@@ -43,10 +40,8 @@ class IndexController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/item/{id}", requirements={"id"="\d+"})
-     * @Route("/item/{id}/{_locale}", requirements={"id"="\d+", "_locale"="%app.supported_locales%"})
-     */
+    #[Route("/item/{id}", requirements: ["id"=>"\d+"])]
+    #[Route("/item/{id}/{_locale}", requirements:["id" => "\d+", "_locale" => "%app.supported_locales%"])]
     public function item(Request $request, string $id) : Response
     {
         return $this->render('item.html.twig',
