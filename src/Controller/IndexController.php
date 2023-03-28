@@ -13,8 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
 
-    #[Route("/")]
-    #[Route("/{_locale}", requirements: ["_locale" => "%app.supported_locales%"])]
+    #[Route("/", schemes: ['https'])]
+    #[Route("/{_locale}", requirements: ["_locale" => "%app.supported_locales%"], schemes: ['https'])]
     public function index(Request $request) : Response
     {
         $form = $this->createFormBuilder()
@@ -40,8 +40,8 @@ class IndexController extends AbstractController
         );
     }
 
-    #[Route("/item/{id}", requirements: ["id"=>"\d+"])]
-    #[Route("/item/{id}/{_locale}", requirements:["id" => "\d+", "_locale" => "%app.supported_locales%"])]
+    #[Route("/item/{id}", requirements: ["id"=>"\d+"], schemes: ['https'])]
+    #[Route("/item/{id}/{_locale}", requirements:["id" => "\d+", "_locale" => "%app.supported_locales%"], schemes: ['https'])]
     public function item(Request $request, string $id) : Response
     {
         return $this->render('item.html.twig',
