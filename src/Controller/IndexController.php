@@ -5,10 +5,12 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class IndexController extends AbstractController
 {
@@ -18,12 +20,13 @@ class IndexController extends AbstractController
     public function index(Request $request) : Response
     {
         $form = $this->createFormBuilder()
-            ->add('id', NumberType::class, ['attr' => [
-                    'data-pristine-required' => 'true',
-                    'minlength' => '2',
-                    'maxlength' => '5',
-                    'data-pristine-type' => 'number',
-                ]])
+            ->add('id', TextType::class, [
+                'required' => true,
+                'constraints' => [
+                    new Length(['min' => 2, 'max' => 5]),
+                    new Regex('/^[0-9]+$/', 'Only numbers are allowed')
+                ]
+            ])
             ->getForm();
 
         $form->handleRequest($request);
