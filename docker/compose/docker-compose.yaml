@@ -1,0 +1,17 @@
+services:
+
+  php-franken:
+    build:
+      context: ../../
+      dockerfile: docker/franken-php/Dockerfile
+      args:
+        - COMPOSER_AUTH={"gitlab-token":{"gitlab.tiagos.cz":"${TIAGOS_GITLAB_ACCESS_TOKEN}"}}
+    volumes:
+      - ${PWD}/php-application/src:/app/src
+    ports:
+      - "${HTTP_LOCAL_PORT}:80"
+      - "8078:443/tcp"
+      - "8078:443/udp"
+    environment:
+      COMPOSER_AUTH: "{\"gitlab-token\":{\"gitlab.tiagos.cz\":\"${TIAGOS_GITLAB_ACCESS_TOKEN}\"}}"
+      APP_ENV: ${APP_ENV}
