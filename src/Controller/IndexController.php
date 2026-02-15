@@ -23,7 +23,7 @@ class IndexController extends AbstractController
             ->add('id', TextType::class, [
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 2, 'max' => 5]),
+                    new Length(min: 2, max: 5),
                     new Regex('/^[0-9]+$/', 'Only numbers are allowed')
                 ]
             ])
