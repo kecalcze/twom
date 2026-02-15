@@ -2,6 +2,15 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.2"
     },
+    "doctrine/deprecations": {
+        "version": "1.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "87424683adc81d7dc305eefec1fced883084aab9"
+        }
+    },
     "doctrine/inflector": {
         "version": "2.0.3"
     },
@@ -13,12 +22,6 @@
     },
     "egulias/email-validator": {
         "version": "3.1.1"
-    },
-    "friendsofphp/proxy-manager-lts": {
-        "version": "v1.0.5"
-    },
-    "laminas/laminas-code": {
-        "version": "4.4.2"
     },
     "monolog/monolog": {
         "version": "2.3.2"
@@ -380,9 +383,6 @@
     },
     "symfony/property-info": {
         "version": "v5.3.1"
-    },
-    "symfony/proxy-manager-bridge": {
-        "version": "v5.3.0"
     },
     "symfony/routing": {
         "version": "5.3",
